@@ -25,6 +25,10 @@ class TreeNode:
                 payoff, strategy = child_payoff, child_strategy
         return payoff, strategy
 
+    #should also be in game class
+    def to_normal():
+        pass
+
 
     def get_level(self):
         level = 0
@@ -50,7 +54,7 @@ def build_tree():
     root = TreeNode("Do action", 0)
 
     punish = TreeNode("punish", 1)
-    accept = TreeNode("accept", None, [0,2])
+    accept = TreeNode("accept", None, [5,2])
     root.add_child(punish)
     root.add_child(accept)
 
