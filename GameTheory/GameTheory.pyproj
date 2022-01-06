@@ -25,6 +25,9 @@
     <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="game.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="node.py">
       <SubType>Code</SubType>
     </Compile>

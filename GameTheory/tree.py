@@ -1,4 +1,4 @@
-class TreeNode:
+class Node:
     def __init__(self, name, player = None, payoff = [None]):
         self.name = name
         self.children = []
@@ -11,8 +11,7 @@ class TreeNode:
     def add_child(self, child):
         child.parent = self
         self.children.append(child)
-        
-    # TODO: Make game class
+
     def calculate_payoff(self):
         if self.endnode == True:
             return self.payoff, self.name
@@ -25,7 +24,6 @@ class TreeNode:
                 payoff, strategy = child_payoff, child_strategy
         return payoff, strategy
 
-    #should also be in game class
     def to_normal():
         pass
 
@@ -48,18 +46,18 @@ class TreeNode:
             for child in self.children:
                  child.print_tree()
 
-## Testing ##
+## Testing - deletable ##
 
 def build_tree(): 
-    root = TreeNode("Do action", 0)
+    root = Node("Do action", 0)
 
-    punish = TreeNode("punish", 1)
-    accept = TreeNode("accept", None, [5,2])
+    punish = Node("punish", 1)
+    accept = Node("accept", None, [5,2])
     root.add_child(punish)
     root.add_child(accept)
 
-    punish.add_child(TreeNode("retaliate", None, [3,4]))
-    punish.add_child(TreeNode("nothing", None, [10,2]))
+    punish.add_child(Node("retaliate", None, [3,4]))
+    punish.add_child(Node("nothing", None, [10,2]))
 
     root.print_tree()
 
