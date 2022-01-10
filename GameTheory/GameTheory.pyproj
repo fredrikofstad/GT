@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>217b2cd7-af13-4302-92d4-dd8103d9399f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>tree.py</StartupFile>
+    <StartupFile>game.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

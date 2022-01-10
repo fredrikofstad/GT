@@ -3,7 +3,8 @@ import tree
 class Game:
     def __init__(self):
         pass
-
+    def add_node():
+        pass
 
 def build_tree(): 
     root = Node("Do action", 0)
