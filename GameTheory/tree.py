@@ -1,10 +1,9 @@
 class Node:
-    def __init__(self, name, player = None, payoff = [None]):
+    def __init__(self, name, player=None, payoff=[None]):
         self.name = name
         self.children = []
         self.parent = None
         self.player = player
-        self.strategy = ""
         self.payoff = payoff
         self.endnode = False if payoff[0] is None else True
 
@@ -13,20 +12,16 @@ class Node:
         self.children.append(child)
 
     def calculate_payoff(self):
-        if self.endnode == True:
-            return self.payoff, self.name
-        payoff, strategy = None, None
+        if self.endnode:
+            return self.payoff, self.name, [[0],[0]]
+        payoff, strategy, pne= None, None, None
         for child in self.children:
-            child_payoff, child_strategy = child.calculate_payoff()
+            child_payoff, child_strategy, child_pne = child.calculate_payoff()
             if payoff is None:
-                payoff, strategy = child_payoff, child_strategy
+                payoff, strategy, pne = child_payoff, child_strategy, child_pne
             elif child_payoff[self.player] > payoff[self.player]:
-                payoff, strategy = child_payoff, child_strategy
-        return payoff, strategy
-
-    def to_normal():
-        pass
-
+                payoff, strategy, pne = child_payoff, child_strategy, pne[self.player].append(child_strategy)
+        return payoff, strategy, pne
 
     def get_level(self):
         level = 0
@@ -44,26 +39,4 @@ class Node:
             print(space + self.name)
         if self.children:
             for child in self.children:
-                 child.print_tree()
-
-## Testing - deletable ##
-
-def build_tree(): 
-    root = Node("Do action", 0)
-
-    punish = Node("punish", 1)
-    accept = Node("accept", None, [5,2])
-    root.add_child(punish)
-    root.add_child(accept)
-
-    punish.add_child(Node("retaliate", None, [3,4]))
-    punish.add_child(Node("nothing", None, [10,2]))
-
-    root.print_tree()
-
-    print(root.calculate_payoff())
-
-    print("END")
-
-if __name__ == '__main__':
-    build_tree()
+                child.print_tree()
