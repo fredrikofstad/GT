@@ -13,7 +13,7 @@ class Node:
 
     def calculate_payoff(self):
         if self.endnode:
-            return self.payoff, self.name, [[0],[0]]
+            return self.payoff, self.name, [[0], [0]]
         payoff, strategy, pne= None, None, None
         for child in self.children:
             child_payoff, child_strategy, child_pne = child.calculate_payoff()

@@ -1,17 +1,18 @@
 from tree import Node
 
-#Extensive sequential form game
+# Extensive sequential form game
 class Game:
     def __init__(self):
         self.root = Node("Root", 0)
     def calculate_payoff(self):
         self.root.calculate_payoff()
 
+
 def build_tree(): 
     game = Game()
-    #create nodes:
+    # create nodes:
     action1 = Node("Do action", 1)
-    #add nodes as child
+    # add nodes as child
     game.root.add_child(action1)
     game.root.add_child(Node("Nothing", None, [2,5]))
 
@@ -21,6 +22,7 @@ def build_tree():
     game.root.print_tree()
     print("::")
     print(game.root.calculate_payoff())
+
 
 if __name__ == '__main__':
     build_tree()
