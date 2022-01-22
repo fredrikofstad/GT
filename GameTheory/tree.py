@@ -14,11 +14,13 @@ class Node:
     def calculate_payoff(self):
         if self.endnode:
             return self.payoff, self.name, []
-        payoff, strategy, pne= None, None, []
+        payoff = None
         for child in self.children:
             child_payoff, child_strategy, child_pne = child.calculate_payoff()
-            if child.payoff is None:
-                payoff, strategy, pne = child_payoff, child_strategy, child_pne
+            if payoff is None:
+                payoff = child_payoff
+                strategy = child_strategy
+                pne = child_pne
             elif child_payoff[self.player] > payoff[self.player]:
                 payoff, strategy, pne = child_payoff, child_strategy, pne.append(child.strategy)
                 print("now")
