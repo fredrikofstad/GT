@@ -16,7 +16,7 @@ def build_tree():
     game.root.add_child(action1)
     game.root.add_child(Node("Nothing", None, [2,5]))
 
-    action1.add_child(Node("punish", None, [1,2]))
+    action1.add_child(Node("punish", None, [3,2]))
     action1.add_child(Node("accept", None, [10,1]))
 
     game.root.print_tree()
