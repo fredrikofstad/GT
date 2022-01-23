@@ -20,10 +20,11 @@ class Node:
             if payoff is None:
                 payoff = child_payoff
                 strategy = child_strategy
-                pne = child_pne
             elif child_payoff[self.player] > payoff[self.player]:
-                payoff, strategy, pne = child_payoff, child_strategy, pne.append(child.strategy)
+                payoff, strategy = child_payoff, child_strategy
                 print("now")
+        pne = child_pne
+        pne.append(strategy)
         return payoff, strategy, pne
 
     def get_level(self):
@@ -36,7 +37,7 @@ class Node:
 
     def print_tree(self):
         space = ' ' * self.get_level() * 3
-        if(self.endnode):
+        if self.endnode:
             print(space + self.name, self.payoff)
         else:
             print(space + self.name)
